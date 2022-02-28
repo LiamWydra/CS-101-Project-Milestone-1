@@ -1,4 +1,4 @@
-def dna2rna(dna):
+def reverse_complement(dna):
     dna_r = dna[::-1]
     rna = ''
     for symbol in dna_r:

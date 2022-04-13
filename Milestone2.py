@@ -1,17 +1,34 @@
-#def find_splice(dna_motif, dna) - Carlie
-def find_splice(dna_motif, dna):
-    result = []
-    count = 0
-    for i in range(len(dna_motif)):
-        while dna[count] != dna_motif[i]:
-            count += 1
-        result.append(count)
-        count += 1
-    return result
-
-print(find_splice("GTCTAAAAC","TGCATGCATGCACCCA")) 
-
 #def shared_motif(dna_list) - carlie
+def shared_motif(dna_list):
+    find=[] 
+    check=dna_list[0]
+    for a in range(len(check)):
+        for t in range (1,len(check)-a):
+            subcheck=check[a:(a+t)+1]
+            for n in range(1,len(dna_list)):
+                if dna_list[n].find(subcheck)==-1:
+                    continue
+                else:
+                    find.append(subcheck)
+    if find==[]:
+        return ''
+    else:
+        count_find=[]
+        for a in range(len(find)):
+            count_find.append(find.count(find[a]))
+        substrings=[]
+        for a in range(len(find)):
+            if count_find[a] == (len(dna_list))-1:
+                substrings.append(find[a])
+        len_substrings=[]
+        for a in range(len(substrings)):
+            len_substrings.append(len(substrings[a]))
+        max_len=max(len_substrings)
+        max_substrings=[]
+        for a in range(len(substrings)):
+            if len(substrings[a])==max_len:
+                max_substrings.append(substrings[a])
+    return max_substrings[0]
 
 #def get_edges(dna_dict) - Liam
 def get_edges(dna_dict):

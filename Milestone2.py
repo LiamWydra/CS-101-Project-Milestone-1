@@ -46,7 +46,7 @@ def get_edges(dna_dict):
                 z=z+1
                 continue
         n=n+1
-    print (anws)
+    return (anws)
 #def assemble_genome(dna_list) - Liam
 
 #def perfect_match(rna) - Liam
